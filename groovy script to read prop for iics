@@ -1,0 +1,133 @@
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+def Business_Scenario = properties.Business_Scenario.split(',')
+
+if(Business_Scenario[0].contains("Scenario")){
+return[Business_Scenario[0], Business_Scenario[1], Business_Scenario[2], Business_Scenario[3], Business_Scenario[4]]
+}
+
+
+
+
+
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+def Chain = properties.Chain.split(',')
+
+if(Scenario.contains("Scenario 1")) {
+    return[Chain[0]]
+} else if (Scenario.contains("Scenario 2")) {
+    return[Chain[1]]
+} else if (Scenario.contains("Scenario 3")) {
+    return[Chain[2],Chain[3]]
+} else {
+    return["Chain needs to be configured"]
+}
+
+
+
+
+
+
+
+
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+def Starting_Point_Chain_1 = properties.Starting_Point_Chain_1.split(',')
+def Starting_Point_Chain_2 = properties.Starting_Point_Chain_2.split(',')
+def Starting_Point_Chain_3 = properties.Starting_Point_Chain_3.split(',')
+
+if(Chain.contains("Chain 1")) {
+    return[Starting_Point_Chain_1[0], Starting_Point_Chain_1[1], Starting_Point_Chain_1[2], Starting_Point_Chain_1[3]]
+} else if (Chain.contains("Chain 2")) {
+    return[Starting_Point_Chain_2[0], Starting_Point_Chain_2[1], Starting_Point_Chain_2[2], Starting_Point_Chain_2[3]]
+} else if (Chain.contains("Chain 3")) {
+    return[Starting_Point_Chain_3[0], Starting_Point_Chain_3[1], Starting_Point_Chain_3[2], Starting_Point_Chain_3[3]]
+} else {
+    return["Starting point needs to be configured"]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+             def Starting_Point_Chain_1 = properties.Starting_Point_Chain_1.split(',')
+             def Starting_Point_Chain_2 = properties.Starting_Point_Chain_2.split(',')
+             def Starting_Point_Chain_3 = properties.Starting_Point_Chain_3.split(',')
+
+             def Ending_Point_Chain_1 = properties.Ending_Point_Chain_1.split(',')
+             def Ending_Point_Chain_2 = properties.Ending_Point_Chain_2.split(',')
+             def Ending_Point_Chain_3 = properties.Ending_Point_Chain_3.split(',')
+
+
+if(Chain.contains("Chain 1")) {
+     if(Starting_Point.contains(Starting_Point_Chain_1[0])) {
+        return[Ending_Point_Chain_1[0], Ending_Point_Chain_1[1], Ending_Point_Chain_1[2], Ending_Point_Chain_1[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_1[1])) {
+        return[Ending_Point_Chain_1[1], Ending_Point_Chain_1[2], Ending_Point_Chain_1[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_1[2])) {
+        return[Ending_Point_Chain_1[2], Ending_Point_Chain_1[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_1[3])) {
+        return[Ending_Point_Chain_1[3]]
+    }
+}
+
+else if(Chain.contains("Chain 2")) {
+    if(Starting_Point.contains(Starting_Point_Chain_2[0])) {
+        return[Ending_Point_Chain_2[0], Ending_Point_Chain_2[1], Ending_Point_Chain_2[2], Ending_Point_Chain_2[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_2[1])) {
+        return[Ending_Point_Chain_2[1], Ending_Point_Chain_2[2], Ending_Point_Chain_2[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_2[2])) {
+        return[Ending_Point_Chain_2[2], Ending_Point_Chain_2[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_2[3])) {
+        return[Ending_Point_Chain_2[3]]
+    }
+}
+
+else if(Chain.contains("Chain 3")) {
+    if(Starting_Point.contains(Starting_Point_Chain_3[0])) {
+        return[Ending_Point_Chain_3[0], Ending_Point_Chain_3[1], Ending_Point_Chain_3[2], Ending_Point_Chain_3[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_3[1])) {
+        return[Ending_Point_Chain_3[1], Ending_Point_Chain_3[2], Ending_Point_Chain_3[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_3[2])) {
+        return[Ending_Point_Chain_3[2] ,Ending_Point_Chain_3[3]]
+    } else if(Starting_Point.contains(Starting_Point_Chain_3[3])) {
+        return[Ending_Point_Chain_3[3]]
+    }
+}
+
+
+else {
+    return["Ending point needs to be configured"]
+}
