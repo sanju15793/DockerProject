@@ -1,0 +1,22 @@
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+String[] Chain = properties.Chain.split(',')
+boolean isChainFound = false
+List<String> chainList = new ArrayList<String>()
+
+for(int i=0; i<Chain.length; i++) {
+    if(Chain[i].trim().contains(Scenario.trim())) {
+        chainList.add(Chain[i])
+        isChainFound = true
+    }
+}
+
+if(isChainFound) {
+    return chainList
+} else {
+    return["Chain needs to be configured"]
+}

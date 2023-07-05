@@ -1,0 +1,9 @@
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+List<String>  Scenario = properties.Scenario.split(',')
+
+return Scenario
