@@ -1,0 +1,34 @@
+Properties properties = new Properties()
+File propertiesFile = new File('C:\\Users\\sanja\\Desktop\\TestActiveChoice\\props.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+String[] StartingPoint = properties.Chain.split(',')
+List<String> startingPointOptions = new ArrayList<String>()
+boolean isStartingPointFound = false
+
+for(int i=0; i<StartingPoint.length; i++) {
+    if(StartingPoint[i].trim().contains(Chain.trim())) {
+        String wholeString = StartingPoint[i]
+        String[] wholeStartingPointSequence = wholeString.split(':')
+        String[]  individualStartingPointSequence = wholeStartingPointSequence[1].split(';')
+        isStartingPointFound = true
+        int startIndex = 0
+        for(int x=0; x<individualStartingPointSequence.length; x++) {
+            if(individualStartingPointSequence[x].contains(Starting_Point)) {
+                startIndex = x
+            }
+        }
+
+        for(int j=startIndex; j<individualStartingPointSequence.length; j++) {
+            startingPointOptions.add(individualStartingPointSequence[j])
+        }
+    }
+}
+
+if(isStartingPointFound) {
+    return startingPointOptions
+} else {
+    return ["Starting point needs to be configured"]
+}
